@@ -3,7 +3,7 @@ import './App.scss';
 import Navbar from './components/navbar/navbar';
 import TodoList from './components/todo-list/todo-list';
 import EditList from './components/edit-list/edit-list';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
   return (

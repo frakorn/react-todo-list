@@ -10,7 +10,7 @@ export default class Navbar extends Component {
     };
   }
 
-  changePage = (item,i) => {
+  changePage = (i) => {
     let menu = this.state.menu;
     menu.map((l,j) => l.state = i===j ? 'active' : ''); 
     this.setState({menu:menu});
@@ -26,7 +26,7 @@ export default class Navbar extends Component {
           <ul className="navbar-nav mr-auto">
             {this.state.menu.map((l,i) =>
               <li key={l.id}  className={"nav-item " + l.state}>
-                <a className="nav-item nav-link" ><Link to={l.href}>{l.item}</Link></a>
+                <Link className="nav-item nav-link" onClick={this.changePage.bind(this,i)} to={l.href}>{l.item}</Link>
               </li>
             )}
           </ul>
