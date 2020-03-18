@@ -15,8 +15,6 @@ function App() {
             <Route exact path='/todo-list' component={TodoList} />
             <Route exact path='/edit-list' component={EditList} />
       </Switch>
-
-
       </header>
     </div>
   );

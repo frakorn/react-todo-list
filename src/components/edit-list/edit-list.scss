@@ -2,6 +2,22 @@
     float:right;
 }
 
+.col-xs-6.col-sm-3{
+    text-align: center;
+}
+
 .padding{
     padding:5px;
+}
+
+input.form-control{
+    position:absolute;
+}
+
+.align-left{
+    text-align: left !important;
+}
+
+.align-right{
+    text-align: right !important;
 }

@@ -5,7 +5,7 @@ import '../todo-list/todo-list.scss';
 export default class TodoList extends Component {
     constructor(props) {
         super(props);
-        this.state = { list : list}
+        this.state = { list : JSON.parse(localStorage.getItem('list')) || list}
     }
     render() {
         return (

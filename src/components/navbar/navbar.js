@@ -8,6 +8,13 @@ export default class Navbar extends Component {
       menu: [{ id:"list", item:"My List", state:"active", href:"/todo-list" },
       { id:"edit", item:"Edit List", state:"", href:"/edit-list" }]
     };
+    this.checkActiveButton()
+  }
+
+  checkActiveButton = () => {
+    const index = this.state.menu.findIndex(item => item.href == window.location.pathname);
+    if(index>=0)
+      this.changePage(index)
   }
 
   changePage = (i) => {
