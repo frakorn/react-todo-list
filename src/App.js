@@ -11,9 +11,9 @@ function App() {
       <header className="App-header">
       <Navbar />
       <Switch>
-            <Route exact path='/' component={TodoList} />
             <Route exact path='/todo-list' component={TodoList} />
             <Route exact path='/edit-list' component={EditList} />
+            <Route path='/' component={TodoList} />
       </Switch>
       </header>
     </div>

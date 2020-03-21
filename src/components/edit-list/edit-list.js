@@ -5,7 +5,7 @@ import '../edit-list/edit-list.scss';
 export default class EditList extends Component {
     constructor(props) {
         super(props);
-        this.state = { list : JSON.parse(localStorage.getItem('list')) || list}
+        this.state = { list : JSON.parse(localStorage.getItem('list')) || list};
     }
     addItem = () => {
         const newObj = {
@@ -30,16 +30,14 @@ export default class EditList extends Component {
     render() {
         return (
             <div>
-                <div className="row padding">
-                    <div className="col-xs-6 col-sm-3"></div>
-                    <div className="col-xs-6 col-sm-3 align-right">
+                <div className="row">
+                    <div className="col align-right">
                         <button onClick={this.addItem} type="button" className="btn btn-info">Add</button>
                     </div>
-                    <div className="col-xs-6 col-sm-3 align-left">
+                    <div className="col align-left">
                         <button onClick={this.save} type="button" className="btn btn-success">Save</button>
-                    </div>
-                    <div className="col-xs-6 col-sm-3"></div>
-                </div>
+                    </div>                     
+                </div>        
                 <ol className="list-group list_of_items">
                     {this.state.list.map(l => 
                     <li key={l.id} className="list-group-item" data-toggle="modal" data-target="#editModal">
