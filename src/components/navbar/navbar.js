@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faList } from '@fortawesome/free-solid-svg-icons'
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -25,7 +27,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <a className="navbar-brand">TODO LIST</a>
+        <a className="navbar-brand"><FontAwesomeIcon icon={faList} /></a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

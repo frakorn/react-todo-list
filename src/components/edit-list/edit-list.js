@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import list from "../../storage/list.json"
 import '../edit-list/edit-list.scss';
+import { toast } from 'react-toastify';
 
 export default class EditList extends Component {
     constructor(props) {
@@ -25,12 +26,18 @@ export default class EditList extends Component {
         this.setState({list:list});
     }
     save = () => {
-        localStorage.setItem('list', JSON.stringify(this.state.list));
+        try{
+            localStorage.setItem('list', JSON.stringify(this.state.list));
+            toast.success("Saved")
+        }
+        catch(e){
+            toast.error("Error")
+        }
     }
     render() {
         return (
-            <div>
-                <div className="row">
+            <div class="edit-list">
+                <div className="row padding">
                     <div className="col align-right">
                         <button onClick={this.addItem} type="button" className="btn btn-info">Add</button>
                     </div>

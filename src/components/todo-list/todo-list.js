@@ -9,7 +9,7 @@ export default class TodoList extends Component {
     }
     render() {
         return (
-            <div>
+            <div class="todo-list">
                 <ul className="list-group ">
                     {this.state.list.map(l => <li key={l.id} className="list-group-item" data-toggle="modal" data-target="#editModal">{l.value}<span className="glyphicon glyphicon-remove"></span></li>)}
                 </ul>
