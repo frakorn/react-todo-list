@@ -13,7 +13,7 @@ const SortableItem = SortableElement(({ list, editItem, removeItem }) => {
                     </span>
                 </div>
                 <div className="custom-file">
-                    <input onChange={editItem.bind(this, list.id)} value={list.value} className="form-control" type="text" placeholder=".form-control-lg"></input>
+                    <input onChange={editItem.bind(this, list.id)} value={list.value} className="form-control" type="text" placeholder="type..."></input>
                 </div>
                 <div className="input-group-prepend">
                     <button onClick={removeItem.bind(this, list.id)} className="delete btn btn-warning">Delete</button>

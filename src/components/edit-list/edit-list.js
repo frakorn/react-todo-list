@@ -17,9 +17,17 @@ export default class EditList extends Component {
         }));
     };
 
+    generateId = (id) => {
+        if(this.state.list.find(l => l.id === id))
+            this.findId(id+1)
+        else
+            return id;
+    }
+
     addItem = () => {
+        const id = this.generateId(this.state.list.length + 1)
         const newObj = {
-            "id": this.state.list.length + 1,
+            "id": id,
             "value": "new element"
         }
         this.setState({ list: [...this.state.list, newObj] })
