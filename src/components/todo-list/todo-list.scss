@@ -1,4 +1,4 @@
-.list-group-item:hover {
+.todo-list .list-group-item:hover {
     background-color: #17A2B8;
     transition: 0.3s;
     opacity: 0.7;
@@ -12,6 +12,9 @@
     -webkit-animation: fadein 1s; /* Safari and Chrome */
     -o-animation: fadein 1s; /* Opera */
 }
+.removed {
+    text-decoration: line-through;
+  }
 @keyframes fadein {
     from {
         opacity:0;
@@ -44,3 +47,5 @@
         opacity: 1;
     }
 }
+
+ 

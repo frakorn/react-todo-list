@@ -1,59 +1,85 @@
-.pull-right{
-    float:right;
-}
-
-.padding{
-    padding:5px;
-}
-
-input.form-control{
-    position:absolute;
-}
-
-.align-left{
+.pull-right {
+    float: right;
+  }
+  
+  .padding {
+    padding: 5px;
+  }
+  
+  input.form-control {
+    position: absolute;
+  }
+  
+  .align-left {
     text-align: left !important;
-}
-
-.align-right{
+  }
+  
+  .align-right {
     text-align: right !important;
-}
-
-/* css animation */
-.edit-list {
+  }
+  
+  /* css animation */
+  
+  .edit-list {
     animation: fadein 1s;
-    -moz-animation: fadein 1s; /* Firefox */
-    -webkit-animation: fadein 1s; /* Safari and Chrome */
-    -o-animation: fadein 1s; /* Opera */
-}
-@keyframes fadein {
+    -moz-animation: fadein 1s;
+  
+    /* Firefox */
+    -webkit-animation: fadein 1s;
+  
+    /* Safari and Chrome */
+    -o-animation: fadein 1s;
+  
+    /* Opera */
+  }
+  
+  @keyframes fadein {
     from {
-        opacity:0;
+      opacity: 0;
     }
+  
     to {
-        opacity:1;
+      opacity: 1;
     }
-}
-@-moz-keyframes fadein { /* Firefox */
+  }
+  
+  @-moz-keyframes fadein {
+    /* Firefox */
     from {
-        opacity:0;
+      opacity: 0;
     }
+  
     to {
-        opacity:1;
+      opacity: 1;
     }
-}
-@-webkit-keyframes fadein { /* Safari and Chrome */
+  }
+  
+  @-webkit-keyframes fadein {
+    /* Safari and Chrome */
     from {
-        opacity:0;
+      opacity: 0;
     }
+  
     to {
-        opacity:1;
+      opacity: 1;
     }
-}
-@-o-keyframes fadein { /* Opera */
+  }
+  
+  @-o-keyframes fadein {
+    /* Opera */
     from {
-        opacity:0;
+      opacity: 0;
     }
+  
     to {
-        opacity: 1;
+      opacity: 1;
     }
-}
+  }
+  
+  .drag {
+    cursor: move;
+  }
+  
+  .input-group.mb-3.drag {
+    margin-bottom: 0 !important;
+  }

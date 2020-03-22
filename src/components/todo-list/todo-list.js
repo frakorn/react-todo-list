@@ -7,11 +7,14 @@ export default class TodoList extends Component {
         super(props);
         this.state = { list : JSON.parse(localStorage.getItem('list')) || list}
     }
+    cancelItem = (elem) => {
+        elem.target.classList.toggle('removed');
+    }
     render() {
         return (
-            <div class="todo-list">
+            <div className="todo-list">
                 <ul className="list-group ">
-                    {this.state.list.map(l => <li key={l.id} className="list-group-item" data-toggle="modal" data-target="#editModal">{l.value}<span className="glyphicon glyphicon-remove"></span></li>)}
+                    {this.state.list.map(l => <li key={l.id} className="list-group-item" data-toggle="modal" onClick={this.cancelItem} data-target="#editModal">{l.value}</li>)}
                 </ul>
             </div>
         );
