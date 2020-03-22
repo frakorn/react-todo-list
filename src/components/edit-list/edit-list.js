@@ -19,7 +19,7 @@ export default class EditList extends Component {
 
     generateId = (id) => {
         if(this.state.list.find(l => l.id === id))
-            this.findId(id+1)
+            this.generateId(id+1)
         else
             return id;
     }
