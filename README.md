@@ -1,4 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Graphics libraries used:
+- Bootstrap 4
+- Font awesome for icons
+
+Other Javascript libraries:
+- react-sortable-hoc for sorting elements
+- react-toastify for toast message
 
 ## Available Scripts
 
