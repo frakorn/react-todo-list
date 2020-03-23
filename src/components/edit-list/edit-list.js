@@ -28,7 +28,7 @@ export default class EditList extends Component {
         const id = this.generateId(this.state.list.length + 1)
         const newObj = {
             "id": id,
-            "value": "new element"
+            "value": ""
         }
         this.setState({ list: [...this.state.list, newObj] })
     }
@@ -38,6 +38,7 @@ export default class EditList extends Component {
         })
     }
     editItem = (id, el) => {
+        debugger
         let list = this.state.list;
         list.map((l, j) => l.value = l.id === id ? el.target.value : l.value);
         this.setState({ list: list });
