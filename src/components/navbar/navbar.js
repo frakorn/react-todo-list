@@ -10,6 +10,9 @@ export default class Navbar extends Component {
       menu: [{ id:"list", item:"My List", state:"active", href:"/todo-list" },
       { id:"edit", item:"Edit List", state:"", href:"/edit-list" }]
     };
+  }
+
+  componentDidMount(){
     this.checkActiveButton()
   }
 
