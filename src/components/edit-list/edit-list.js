@@ -38,7 +38,6 @@ export default class EditList extends Component {
         })
     }
     editItem = (id, el) => {
-        debugger
         let list = this.state.list;
         list.map((l, j) => l.value = l.id === id ? el.target.value : l.value);
         this.setState({ list: list });
