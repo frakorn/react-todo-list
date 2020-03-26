@@ -34,7 +34,7 @@ export default class EditList extends Component {
     }
     removeItem = (id) => {
         this.setState({
-            list: this.state.list.filter(item => item.id != id)
+            list: this.state.list.filter(item => item.id !== id)
         })
     }
     editItem = (id, el) => {
@@ -44,7 +44,11 @@ export default class EditList extends Component {
     }
     save = () => {
         try {
-            localStorage.setItem('list', JSON.stringify(this.state.list));
+            let newList = this.state.list.filter(item => item.value!=='')
+            this.setState({
+                list: newList
+            })
+            localStorage.setItem('list', JSON.stringify(newList));
             toast.success("Saved")
         }
         catch (e) {

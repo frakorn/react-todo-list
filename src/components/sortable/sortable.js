@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons'
 
 const SortableItem = SortableElement(({ list, editItem, removeItem }) => {
-     return (
+    return (
         <li key={list.id} className="list-group-item" data-toggle="modal" data-target="#editModal">
             <div className="input-group mb-3 drag">
                 <div className="input-group-prepend">
@@ -26,27 +26,27 @@ const SortableItem = SortableElement(({ list, editItem, removeItem }) => {
 const SortableList = SortableContainer(({ items, removeItem, editItem }) => {
     return (
         <ol className="list-group list_of_items">
-            {items.map((list,i) => (
-                <SortableItem editItem={editItem}
-                    removeItem={removeItem}
-                    editItem={editItem}
-                    key={`item-${list.id}`}
-                    index={i}
-                    list={list} />
-            ))}
+            {items.length === 0 ?
+                <div class="alert alert-warning" role="alert">
+                Empty list :(
+                </div> :
+                items.map((list, i) => (
+                    <SortableItem editItem={editItem}
+                        removeItem={removeItem}
+                        key={`item-${list.id}`}
+                        index={i}
+                        list={list} />
+                ))}
         </ol>
     );
 });
 
 export default class Sortable extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return <SortableList items={this.props.items}
-                            removeItem={this.props.removeItem}
-                            editItem={this.props.editItem}
-                            onSortEnd={this.props.onSortEnd} />;
+            removeItem={this.props.removeItem}
+            editItem={this.props.editItem}
+            onSortEnd={this.props.onSortEnd} />;
     }
 }

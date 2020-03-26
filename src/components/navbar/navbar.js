@@ -17,7 +17,7 @@ export default class Navbar extends Component {
   }
 
   checkActiveButton = () => {
-    const index = this.state.menu.findIndex(item => item.href == window.location.pathname);
+    const index = this.state.menu.findIndex(item => item.href === window.location.pathname);
     if(index>=0)
       this.changePage(index)
   }
