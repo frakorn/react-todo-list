@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import list from "../../storage/list.json"
 import '../todo-list/todo-list.scss';
+import { connect } from 'react-redux';
 
-export default class TodoList extends Component {
+class TodoList extends Component {
     constructor(props) {
         super(props);
-        this.state = { list : JSON.parse(localStorage.getItem('list')) || list}
+        this.state = { list : JSON.parse(localStorage.getItem('list')) || this.props.list}
     }
     cancelItem = (elem) => {
         elem.target.classList.toggle('removed');
@@ -20,3 +20,10 @@ export default class TodoList extends Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        list: state.list
+    }
+}
+// add connect function to make TodoList an high order component, in order to take the redux store as input props
+export default connect(mapStateToProps)(TodoList)

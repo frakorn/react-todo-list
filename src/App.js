@@ -6,9 +6,11 @@ import EditList from './components/edit-list/edit-list';
 import { Route, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
       <header className="App-header">
         <Navbar />
@@ -20,6 +22,7 @@ function App() {
       </header>
       <ToastContainer autoClose={2500}  />
     </div>
+    </BrowserRouter>
   );
 }
 

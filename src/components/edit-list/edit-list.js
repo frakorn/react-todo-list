@@ -4,11 +4,12 @@ import '../edit-list/edit-list.scss';
 import { toast } from 'react-toastify';
 import arrayMove from 'array-move';
 import Sortable from '../sortable/sortable';
+import { connect } from 'react-redux';
 
-export default class EditList extends Component {
+class EditList extends Component {
     constructor(props) {
         super(props);
-        this.state = { list: JSON.parse(localStorage.getItem('list')) || list };
+        this.state = { list: JSON.parse(localStorage.getItem('list')) || this.props.list}
     }
 
     onSortEnd = ({ oldIndex, newIndex }) => {
@@ -74,3 +75,11 @@ export default class EditList extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        list: state.list
+    }
+}
+// add connect function to make TodoList an high order component, in order to take the redux store as input props
+export default connect(mapStateToProps)(EditList)
