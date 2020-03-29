@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import list from "../../storage/list.json"
 import '../todo-list/todo-list.scss';
 
-export default class TodoList extends Component {
+class TodoList extends Component {
     constructor(props) {
         super(props);
         this.state = { list : JSON.parse(localStorage.getItem('list')) || list}
@@ -20,3 +20,5 @@ export default class TodoList extends Component {
         );
     }
 }
+
+export default TodoList;

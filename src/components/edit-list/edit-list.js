@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import arrayMove from 'array-move';
 import Sortable from '../sortable/sortable';
 
-export default class EditList extends Component {
+class EditList extends Component {
     constructor(props) {
         super(props);
         this.state = { list: JSON.parse(localStorage.getItem('list')) || list };
@@ -74,3 +74,5 @@ export default class EditList extends Component {
         );
     }
 }
+
+export default EditList;
