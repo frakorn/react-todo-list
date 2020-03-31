@@ -10,6 +10,7 @@ class EditList extends Component {
     constructor(props) {
         super(props);
         this.state = { list: JSON.parse(localStorage.getItem('list')) || this.props.list}
+        console.log('props',this.props)
     }
 
     onSortEnd = ({ oldIndex, newIndex }) => {
@@ -34,9 +35,10 @@ class EditList extends Component {
         this.setState({ list: [...this.state.list, newObj] })
     }
     removeItem = (id) => {
-        this.setState({
+        this.props.removeItem(id)
+        /*this.setState({
             list: this.state.list.filter(item => item.id !== id)
-        })
+        })*/
     }
     editItem = (id, el) => {
         let list = this.state.list;
@@ -69,17 +71,26 @@ class EditList extends Component {
                 </div>
                 <Sortable removeItem={this.removeItem}
                     editItem={this.editItem}
-                    items={this.state.list}
+                    items={this.props.list}
                     onSortEnd={this.onSortEnd} />
             </div>
         );
     }
 }
 
+//inject the state into props
 const mapStateToProps = (state) => {
     return {
         list: state.list
     }
 }
+
+//inject the actions into props
+const mapDispatchToPros = (dispatch) => {
+    return {
+        removeItem: (id) => {dispatch({type:'DELETE_ITEM',id:id})}
+    }
+}
+
 // add connect function to make TodoList an high order component, in order to take the redux store as input props
-export default connect(mapStateToProps)(EditList)
+export default connect(mapStateToProps,mapDispatchToPros)(EditList)
