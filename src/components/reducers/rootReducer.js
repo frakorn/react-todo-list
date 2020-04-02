@@ -13,6 +13,20 @@ const rootReducer = (state = initState, action) => {
             list: newList
         };
     }
+    if (action.type === 'ADD_ITEM') {
+        return {
+            list: [...state.list, action.newObj] 
+        };
+    }    
+
+    if (action.type === 'EDIT_ITEM') {
+        let newList = state.list;
+        let i = newList.findIndex(l => l.id===action.id);
+        newList[i].value = action.value;
+        return {
+            list: newList
+        };
+    }    
     return state;
 }
 

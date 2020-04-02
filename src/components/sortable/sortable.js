@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons'
 
 const SortableItem = SortableElement(({ list, editItem, removeItem }) => {
+
     return (
         <li key={list.id} className="list-group-item" data-toggle="modal" data-target="#editModal">
             <div className="input-group mb-3 drag">
@@ -13,7 +14,7 @@ const SortableItem = SortableElement(({ list, editItem, removeItem }) => {
                     </span>
                 </div>
                 <div className="custom-file">
-                    <input onChange={editItem.bind(this, list.id)} value={list.value} className="form-control" type="text" placeholder="type..."></input>
+                    <input onBlur={editItem.bind(this, list.id)} defaultValue={list.value} className="form-control" type="text" placeholder="type..."></input>
                 </div>
                 <div className="input-group-prepend">
                     <button onClick={removeItem.bind(this, list.id)} className="delete btn btn-warning">Delete</button>

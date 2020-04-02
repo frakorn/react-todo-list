@@ -9,8 +9,8 @@ import { connect } from 'react-redux';
 class EditList extends Component {
     constructor(props) {
         super(props);
-        this.state = { list: JSON.parse(localStorage.getItem('list')) || this.props.list}
-        console.log('props',this.props)
+        this.state = { list: JSON.parse(localStorage.getItem('list')) || this.props.list }
+        console.log('props', this.props)
     }
 
     onSortEnd = ({ oldIndex, newIndex }) => {
@@ -20,34 +20,29 @@ class EditList extends Component {
     };
 
     generateId = (id) => {
-        if(this.state.list.find(l => l.id === id))
-            this.generateId(id+1)
+        if (this.props.list.find(l => l.id === id))
+            this.generateId(id + 1)
         else
             return id;
     }
 
     addItem = () => {
-        const id = this.generateId(this.state.list.length + 1)
+        const id = this.generateId(this.props.list.length + 1)
         const newObj = {
             "id": id,
             "value": ""
         }
-        this.setState({ list: [...this.state.list, newObj] })
+        this.props.addItem(id,newObj)
     }
     removeItem = (id) => {
         this.props.removeItem(id)
-        /*this.setState({
-            list: this.state.list.filter(item => item.id !== id)
-        })*/
     }
     editItem = (id, el) => {
-        let list = this.state.list;
-        list.map((l, j) => l.value = l.id === id ? el.target.value : l.value);
-        this.setState({ list: list });
+        this.props.editItem(id,el.target.value);
     }
     save = () => {
         try {
-            let newList = this.state.list.filter(item => item.value!=='')
+            let newList = this.props.list.filter(item => item.value !== '')
             this.setState({
                 list: newList
             })
@@ -88,9 +83,11 @@ const mapStateToProps = (state) => {
 //inject the actions into props
 const mapDispatchToPros = (dispatch) => {
     return {
-        removeItem: (id) => {dispatch({type:'DELETE_ITEM',id:id})}
+        removeItem: (id) => { dispatch({ type: 'DELETE_ITEM', id: id }) },
+        editItem: (id,value) => { dispatch({ type: 'EDIT_ITEM', id: id, value: value }) },
+        addItem: (id,newObj) => { dispatch({ type: 'ADD_ITEM', id: id, newObj: newObj}) }
     }
 }
 
 // add connect function to make TodoList an high order component, in order to take the redux store as input props
-export default connect(mapStateToProps,mapDispatchToPros)(EditList)
+export default connect(mapStateToProps, mapDispatchToPros)(EditList)
