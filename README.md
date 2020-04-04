@@ -1,4 +1,4 @@
-## ReactJS TODO sortable list
+## ReactJS/Redux TODO sortable list
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 Graphics libraries used:
