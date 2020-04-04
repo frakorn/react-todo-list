@@ -1,3 +1,5 @@
+## ReactJS TODO List
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 Graphics libraries used:
 - Bootstrap 4
@@ -6,6 +8,10 @@ Graphics libraries used:
 Other Javascript libraries:
 - react-sortable-hoc for sorting elements
 - react-toastify for toast message
+
+Store management:
+- default ReactJS state management
+- Redux store management (available in the 'redux' branch)
 
 ## Available Scripts
 
