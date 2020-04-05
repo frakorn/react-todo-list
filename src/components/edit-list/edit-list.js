@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import list from "../../storage/list.json"
 import '../edit-list/edit-list.scss';
 import { toast } from 'react-toastify';
 import arrayMove from 'array-move';
@@ -10,7 +9,7 @@ class EditList extends Component {
     constructor(props) {
         super(props);
         this.state = { list: JSON.parse(localStorage.getItem('list')) || this.props.list }
-        console.log('props', this.props)
+        console.log('props', this.props)       
     }
 
     onSortEnd = ({ oldIndex, newIndex }) => {
@@ -73,14 +72,14 @@ class EditList extends Component {
     }
 }
 
-//inject the state into props
+//link the state from the Redux store to the component props
 const mapStateToProps = (state) => {
     return {
         list: state.list
     }
 }
 
-//inject the actions into props
+//link the actions to the component props
 const mapDispatchToPros = (dispatch) => {
     return {
         removeItem: (id) => { dispatch({ type: 'DELETE_ITEM', id: id }) },

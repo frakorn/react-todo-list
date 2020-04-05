@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList } from '@fortawesome/free-solid-svg-icons'
+import { faList } from '@fortawesome/free-solid-svg-icons';
+import store from '../store/store';
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -10,10 +11,12 @@ export default class Navbar extends Component {
       menu: [{ id:"list", item:"My List", state:"active", href:"/todo-list" },
       { id:"edit", item:"Edit List", state:"", href:"/edit-list" }]
     };
+    store.subscribe(() => { console.log('state updated')})
+    
   }
 
   componentDidMount(){
-    this.checkActiveButton()
+    this.checkActiveButton();
   }
 
   checkActiveButton = () => {
