@@ -37,6 +37,11 @@ class EditList extends Component {
             list: this.state.list.filter(item => item.id !== id)
         })
     }
+    deleteAll = () => {
+        this.setState({
+            list: []
+        })
+    }    
     editItem = (id, el) => {
         let list = this.state.list;
         list.map((l, j) => l.value = l.id === id ? el.target.value : l.value);
@@ -59,12 +64,11 @@ class EditList extends Component {
         return (
             <div className="edit-list">
                 <div className="row padding">
-                    <div className="col align-right">
+                    <div className="col">
                         <button onClick={this.addItem} type="button" className="btn btn-info">Add</button>
-                    </div>
-                    <div className="col align-left">
                         <button onClick={this.save} type="button" className="btn btn-success">Save</button>
-                    </div>
+                        <button onClick={this.deleteAll} type="button" className="btn btn-warning">Delete All</button>
+                    </div>               
                 </div>
                 <Sortable removeItem={this.removeItem}
                     editItem={this.editItem}

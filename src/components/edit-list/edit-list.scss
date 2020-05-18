@@ -23,6 +23,13 @@
   .edit-list {
     animation: fadein 1s;
     -moz-animation: fadein 1s;
+    .col{
+      display:flex;
+      justify-content:center;
+      button{
+        margin: 0 5px 0 5px;
+      }
+    }
   
     /* Firefox */
     -webkit-animation: fadein 1s;
